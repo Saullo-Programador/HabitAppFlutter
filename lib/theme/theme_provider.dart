@@ -5,7 +5,7 @@ import 'package:habitude_app/theme/light_mode.dart';
 class ThemeProvider extends ChangeNotifier {
 
   // inicialmente tema do modo Light
-  ThemeData _themeData = lightMode;
+  ThemeData _themeData = darkMode;
 
   // obter tema atual
   ThemeData get themeData => _themeData;
@@ -21,10 +21,10 @@ class ThemeProvider extends ChangeNotifier {
 
   // Alterna entre o tema claro e o tema escuro.
   void toggleTheme() {
-    if (_themeData == lightMode) {
-      themeData = darkMode;
-    } else {
+    if (_themeData == darkMode) {
       themeData = lightMode;
+    } else {
+      themeData = darkMode;
     }
   }
 

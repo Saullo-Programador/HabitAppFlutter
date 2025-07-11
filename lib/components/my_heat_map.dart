@@ -14,23 +14,26 @@ class MyHeatMap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    DateTime lastDayOfMonth = DateTime(startDate.year, startDate.month + 2, 0);
+
     return HeatMap(
       startDate: startDate,
-      endDate: DateTime.now(),
+      endDate: lastDayOfMonth,
       datasets: datasets,
       colorMode: ColorMode.color,
-      defaultColor: Theme.of(context).colorScheme.secondary,
-      textColor: Colors.white,
+      defaultColor: Theme.of(context).colorScheme.tertiary,
+      textColor: Theme.of(context).colorScheme.inversePrimary,
       showColorTip: false,
       showText: true,
       scrollable: true,
       size: 30,
       colorsets: {
-        1: Colors.green.shade200,
-        2: Colors.green.shade300,
-        3: Colors.green.shade400,
-        4: Colors.green.shade500,
-        5: Colors.green.shade600,
+        1: Colors.purple.shade400,
+        2: Colors.purple.shade500,
+        3: Colors.purple.shade600,
+        4: Colors.purple.shade700,
+        5: Colors.purple.shade800,
       },
     );
   }

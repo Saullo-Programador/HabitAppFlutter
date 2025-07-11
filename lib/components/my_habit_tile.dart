@@ -8,38 +8,40 @@ class MyHabitTile extends StatelessWidget {
   final void Function(BuildContext)? editHabit;
   final void Function(BuildContext)? deletHabit;
 
-
   const MyHabitTile({
     super.key,
     required this.text,
     required this.isCompleted,
     required this.onChanged,
     required this.editHabit,
-    required this.deletHabit
+    required this.deletHabit,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Slidable(
         endActionPane: ActionPane(
-          motion: const StretchMotion(), 
+          motion: const StretchMotion(),
           children: [
+            const SizedBox(width: 5),
             SlidableAction(
               onPressed: editHabit,
               backgroundColor: Colors.grey.shade800,
               icon: Icons.settings,
               borderRadius: BorderRadius.circular(10),
             ),
-      
+            // Adiciona um SizedBox para criar espaço entre os botões
+            const SizedBox(width: 5), // Ajuste a largura conforme necessário
             SlidableAction(
               onPressed: deletHabit,
               backgroundColor: Colors.red,
               icon: Icons.delete,
               borderRadius: BorderRadius.circular(10),
-            )
-          ]
+            ),
+            
+          ],
         ),
         child: GestureDetector(
           onTap: () {
@@ -47,30 +49,29 @@ class MyHabitTile extends StatelessWidget {
               onChanged!(!isCompleted);
             }
           },
-
           // item de hábito
           child: Container(
             decoration: BoxDecoration(
               color: isCompleted
-                  ? Colors.green
-                  : Theme.of(context).colorScheme.secondary,
+                  ? Theme.of(context).colorScheme.primaryFixed
+                  : Theme.of(context).colorScheme.tertiary,
               borderRadius: BorderRadius.circular(9),
             ),
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.all(5),
             child: ListTile(
               //texto
               title: Text(
                 text,
                 style: TextStyle(
-                  color: isCompleted 
-                      ? Colors.white 
-                      : Theme.of(context).colorScheme.inversePrimary
+                  color: isCompleted
+                      ? Colors.white
+                      : Theme.of(context).colorScheme.inversePrimary,
                 ),
               ),
               
               // Checkbox
               leading: Checkbox(
-                activeColor: Colors.green,
+                activeColor: Theme.of(context).colorScheme.primaryFixed,
                 value: isCompleted,
                 onChanged: onChanged,
               ),

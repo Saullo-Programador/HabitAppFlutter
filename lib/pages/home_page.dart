@@ -142,10 +142,16 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: const MyDrawer(),
       floatingActionButton: FloatingActionButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
         onPressed: createNewHabit,
         elevation: 0,
-        backgroundColor: Theme.of(context).colorScheme.tertiary,
-        child: const Icon(Icons.add),
+        backgroundColor: Theme.of(context).colorScheme.primaryFixed,
+        child: const Icon(
+          Icons.add, 
+          color: Colors.white,
+        ),
       ),
       body: ListView(
         children: [
@@ -164,9 +170,18 @@ class _HomePageState extends State<HomePage> {
       future: habitDatabase.getFirstLaunchDate(),
       builder: (context, snapshot) {
         if(snapshot.hasData){
-          return MyHeatMap(
-            startDate: snapshot.data!, 
-            datasets: prepHeatMapDataset(currentHabits)
+          
+          return Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+
+              ),
+              MyHeatMap(
+                startDate: snapshot.data!,
+                datasets: prepHeatMapDataset(currentHabits),
+              ),
+            ],
           );
         }
         else{
@@ -196,7 +211,7 @@ class _HomePageState extends State<HomePage> {
           title: MyHabitTile(
             text: habit.name,
             isCompleted: isCompletedToday,
-            onChanged: (value) => checkHabitOnOff(false, habit),
+            onChanged: (value) => checkHabitOnOff(value, habit),
             editHabit: (context) => editHabitBox(habit),
             deletHabit: (context) => deletHabitBox(habit),
           ),

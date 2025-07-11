@@ -34,7 +34,7 @@ const AppSettingsSchema = CollectionSchema(
   getId: _appSettingsGetId,
   getLinks: _appSettingsGetLinks,
   attach: _appSettingsAttach,
-  version: '3.1.0+1',
+  version: '3.1.0',
 );
 
 int _appSettingsEstimateSize(
