@@ -41,14 +41,18 @@ class _HomePageState extends State<HomePage> {
         actions: [
           //button to save
           MaterialButton(
+            color: Theme.of(context).colorScheme.primaryFixed,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8)
+            ),
             onPressed: () {
-              String newHabitName = textController.text;
 
-              context.read<HabitDatabase>().addHabit(newHabitName);
-
-              Navigator.pop(context);
-
-              textController.clear();
+              if (textController.text != ""){
+                String newHabitName = textController.text;
+                context.read<HabitDatabase>().addHabit(newHabitName);
+                Navigator.pop(context);
+                textController.clear();
+              }
             },
             child: const Text('Save'),
           ),
@@ -77,6 +81,10 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           MaterialButton(
+            color: Theme.of(context).colorScheme.primaryFixed,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8)
+            ),
             onPressed: () {
               String newHabitName = textController.text;
               context
@@ -109,6 +117,10 @@ class _HomePageState extends State<HomePage> {
         title: Text("Are you sure you want to delete?"),
         actions: [
           MaterialButton(
+            color: Colors.red,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8)
+            ),
             onPressed: () {            
               context.read<HabitDatabase>().deleteHabit(habit.id);
               Navigator.pop(context);
@@ -153,10 +165,16 @@ class _HomePageState extends State<HomePage> {
           color: Colors.white,
         ),
       ),
-      body: ListView(
+      body: Column(
         children: [
-          _buildHeatMap(),
-          _buildHabitList()
+          _buildHeatMap(), // fica fixo
+          Expanded(
+            child: ListView(
+              children: [
+                _buildHabitList()
+              ]
+            ) , // só a lista rola
+          ),
         ],
       ),
     );
@@ -175,11 +193,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),
-
-              ),
-              MyHeatMap(
-                startDate: snapshot.data!,
-                datasets: prepHeatMapDataset(currentHabits),
+                child: MyHeatMap(
+                  startDate: snapshot.data!,
+                  datasets: prepHeatMapDataset(currentHabits),
+                ),
               ),
             ],
           );

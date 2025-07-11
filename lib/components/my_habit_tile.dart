@@ -72,6 +72,7 @@ class MyHabitTile extends StatelessWidget {
               // Checkbox
               leading: Checkbox(
                 activeColor: Theme.of(context).colorScheme.primaryFixed,
+                checkColor: Colors.white,
                 value: isCompleted,
                 onChanged: onChanged,
               ),
