@@ -15,12 +15,26 @@ Este é um aplicativo mobile desenvolvido com Flutter para ajudar na criação e
 
 - Dart: Linguagem de programação utilizada pelo Flutter.
 
-- Hive: Banco de dados local leve e rápido para persistir dados dos hábitos diretamente no dispositivo.
+- Isar: Banco de dados local NoSQL ultra rápido, escrito em Rust, ideal para persistência de dados no dispositivo.
 
 - flutter_heatmap_calendar: Biblioteca para gerar o heatmap de acompanhamento.
 
 ## 📱 Demonstração
 
+<div style="display: flex; align-items: center;flex-direction: center; ">
+
+  <img src="https://github.com/user-attachments/assets/37dee888-1d84-48cc-8d59-afbf37d9ad7b" width="200px">
+  <img src="https://github.com/user-attachments/assets/565ecbe3-b1da-48a2-8126-b80b82dcd62b" width="200px">
+  <img src="https://github.com/user-attachments/assets/d765e555-330c-4b75-b219-ccda58cf85ef" width="200px">
+  <img src="https://github.com/user-attachments/assets/c0688f3d-b13d-4f15-a102-9b0538149014" width="200px">
+  <img src="https://github.com/user-attachments/assets/90f9961f-bff0-47ff-b431-30a1ecebd9a6" width="200px">
+  <img src="https://github.com/user-attachments/assets/c55285d3-5386-4f88-8d7b-6a4a5206ea6d" width="200px">
+
+</div>
+
+
+
 ## ✍️ Autor
+
 Saullo Paulo
-GitHub | LinkedIn
+<a href="https://github.com/Saullo-Programador">Git Hub</a> | <a href="https://www.linkedin.com/in/saullo-paulo-7b2676255">Linkedin</a>
